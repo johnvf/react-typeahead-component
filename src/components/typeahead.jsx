@@ -212,6 +212,7 @@ module.exports = React.createClass({
             state = _this.state,
             props = _this.props,
             OptionTemplate = props.optionTemplate,
+            dropdownStyle = props.dropdownStyle,
             selectedIndex = state.selectedIndex,
             isDropdownVisible = state.isDropdownVisible,
             activeDescendantId = _this.activeDescendantId;
@@ -225,13 +226,13 @@ module.exports = React.createClass({
                 ref='dropdown'
                 role='listbox'
                 aria-hidden={!isDropdownVisible}
-                style={{
+                style={Object.assign({
                     width: '100%',
                     background: '#fff',
                     position: 'absolute',
                     boxSizing: 'border-box',
                     display: isDropdownVisible ? 'block' : 'none'
-                }}
+                }, dropdownStyle)}
                 className='react-typeahead-options'
                 onMouseOut={this.handleMouseOut}>
                 {
